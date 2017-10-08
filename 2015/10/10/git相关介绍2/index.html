@@ -7,20 +7,21 @@
   
   
   
-  <title>git相关介绍2 | wds</title>
+  <title>git相关介绍2 | 一只狂奔的猪</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端技术">
+  <meta name="description" content="分支 创建分支12git branch 分支名称git checkout -b 分支名称">
+<meta name="keywords" content="git,前端技术,学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git相关介绍2">
-<meta property="og:url" content="http://yoursite.com/2017/10/08/git相关介绍2/index.html">
-<meta property="og:site_name" content="wds">
-<meta property="og:description" content="前端技术">
-<meta property="og:updated_time" content="2017-10-08T08:28:14.477Z">
+<meta property="og:url" content="http://yoursite.com/2015/10/10/git相关介绍2/index.html">
+<meta property="og:site_name" content="一只狂奔的猪">
+<meta property="og:description" content="分支 创建分支12git branch 分支名称git checkout -b 分支名称">
+<meta property="og:updated_time" content="2017-10-08T08:36:23.045Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git相关介绍2">
-<meta name="twitter:description" content="前端技术">
+<meta name="twitter:description" content="分支 创建分支12git branch 分支名称git checkout -b 分支名称">
   
-    <link rel="alternative" href="/atom.xml" title="wds" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="一只狂奔的猪" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -192,7 +193,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/前端技术/" style="font-size: 20px;">前端技术</a> <a href="/tags/学习/" style="font-size: 20px;">学习</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
+                        <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/前端技术/" style="font-size: 20px;">前端技术</a> <a href="/tags/学习/" style="font-size: 20px;">学习</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a>
                     </div>
                 </section>
                 
@@ -274,8 +275,8 @@
       <div class="body-wrap"><article id="post-git相关介绍2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/10/08/git相关介绍2/" class="article-date">
-      <time datetime="2017-10-08T08:28:14.000Z" itemprop="datePublished">2017-10-08</time>
+      <a  href="/2015/10/10/git相关介绍2/" class="article-date">
+      <time datetime="2015-10-10T09:30:23.000Z" itemprop="datePublished">2015-10-10</time>
 </a>
 
     </div>
@@ -298,8 +299,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a><a class="article-category-link" href="/categories/学习笔记/git/">git</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端技术/">前端技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -307,7 +316,81 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><ol>
+<li>创建分支<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git branch 分支名称</div><div class="line">git checkout -b 分支名称</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<a id="more"></a>
+<ol>
+<li><p>切换分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout 分支名称</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -d 分支名称</div></pre></td></tr></table></figure>
+</li>
+<li><p>合并分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge 分支名称</div></pre></td></tr></table></figure>
+</li>
+<li><p>后悔药</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git log -g</div><div class="line"></div><div class="line">git branch 分支名称 版本号</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><p>共享版本库（源代码）</p>
+<ol>
+<li><p>创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init --bare</div></pre></td></tr></table></figure>
+</li>
+<li><p>给远程仓库中推送内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push 远程仓库地址 本地分支名称:远程分支名称</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取远程仓库中所有内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone 远程仓库地址 [文件夹名称]</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取远程仓库中更新了的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull 远程仓库地址 分支名称</div></pre></td></tr></table></figure>
+</li>
+<li><p>注意 在push之前一定要先pull</p>
+</li>
+</ol>
+<h2 id="远程地址的别名设置"><a href="#远程地址的别名设置" class="headerlink" title="远程地址的别名设置"></a>远程地址的别名设置</h2><ol>
+<li><p>添加别名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add 别名 远程仓库地址</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看所有别名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote</div></pre></td></tr></table></figure>
+</li>
+<li><p>删除别名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote remove 别名</div></pre></td></tr></table></figure>
+</li>
+<li><p>重命名别名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote rename 旧名 新名</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取别名对应的地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote get-url 别名</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置别名对应的地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote set-url 别名 远程仓库地址</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="github的免密登录设置"><a href="#github的免密登录设置" class="headerlink" title="github的免密登录设置"></a>github的免密登录设置</h2><ol>
+<li><p>生成秘钥对（一个电脑执行一次就行）</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa</div><div class="line">一路回车，冒泡就成功</div></pre></td></tr></table></figure>
+</li>
+<li><p>在github的设置中 添加一个ssh key</p>
+</li>
+<li><p>key中的内容就是将生成的公钥内容粘贴进去就可以了</p>
+</li>
+<li><p>以后使用github的时候，直接（只有）使用ssh连接就可以实现免密</p>
+</li>
+</ol>
+<h2 id="github静态页面"><a href="#github静态页面" class="headerlink" title="github静态页面"></a>github静态页面</h2><ol>
+<li>在github中创建一个仓库</li>
+<li>仓库的名字必须是  用户名.github.io</li>
+<li>将写好的静态页面push到这个cnagku</li>
+<li>通过 用户名.github.io 这个地址就可以访问网站了</li>
+</ol>
+<p>注意： 一个账户只能有一个这样的项目！！！</p>
+<h2 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h2>
       
     </div>
     
@@ -315,13 +398,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2017/10/08/git相关介绍2/">git相关介绍2</a></p>
+        <p><span>本文标题:</span><a  href="/2015/10/10/git相关介绍2/">git相关介绍2</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 wds 的个人博客">wds</a></p>
-        <p><span>发布时间:</span>2017年10月08日 - 16时28分</p>
-        <p><span>最后更新:</span>2017年10月08日 - 16时28分</p>
+        <p><span>发布时间:</span>2015年10月10日 - 17时30分</p>
+        <p><span>最后更新:</span>2017年10月08日 - 16时36分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/10/08/git相关介绍2/" title="git相关介绍2">http://yoursite.com/2017/10/08/git相关介绍2/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/10/08/git相关介绍2/　　作者: wds" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2015/10/10/git相关介绍2/" title="git相关介绍2">http://yoursite.com/2015/10/10/git相关介绍2/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2015/10/10/git相关介绍2/　　作者: wds" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -346,7 +429,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#分支"><span class="toc-number">1.</span> <span class="toc-text">分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程仓库"><span class="toc-number">2.</span> <span class="toc-text">远程仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程地址的别名设置"><span class="toc-number">3.</span> <span class="toc-text">远程地址的别名设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#github的免密登录设置"><span class="toc-number">4.</span> <span class="toc-text">github的免密登录设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#github静态页面"><span class="toc-number">5.</span> <span class="toc-text">github静态页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gitignore"><span class="toc-number">6.</span> <span class="toc-text">.gitignore</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -426,7 +509,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/08/git相关介绍2/">git相关介绍2</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/08/Git基础1/">git相关介绍1</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/06/05/js基础/">js基础</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2015/10/10/git相关介绍2/">git相关介绍2</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/08/Git基础1/">git相关介绍1</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/06/05/js基础/">js基础</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
