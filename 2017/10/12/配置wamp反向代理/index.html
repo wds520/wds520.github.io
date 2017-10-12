@@ -7,14 +7,18 @@
   
   
   
-  <title>Archives | Go With Young</title>
+  <title>配置wamp反向代理 | Go With Young</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Go With Young">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="配置反向代理原因因为博学谷项目的地址为 studyit.com但是接口地址为 api.botue.com 所以直接请求，就是跨域请求，无法正常获取数据又由于后台接口返回的数据不支持jsonp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置wamp反向代理">
+<meta property="og:url" content="http://yoursite.com/2017/10/12/配置wamp反向代理/index.html">
 <meta property="og:site_name" content="Go With Young">
+<meta property="og:description" content="配置反向代理原因因为博学谷项目的地址为 studyit.com但是接口地址为 api.botue.com 所以直接请求，就是跨域请求，无法正常获取数据又由于后台接口返回的数据不支持jsonp">
+<meta property="og:updated_time" content="2017-10-12T01:48:58.489Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Go With Young">
+<meta name="twitter:title" content="配置wamp反向代理">
+<meta name="twitter:description" content="配置反向代理原因因为博学谷项目的地址为 studyit.com但是接口地址为 api.botue.com 所以直接请求，就是跨域请求，无法正常获取数据又由于后台接口返回的数据不支持jsonp">
   
     <link rel="alternative" href="/atom.xml" title="Go With Young" type="application/atom+xml">
   
@@ -37,8 +41,8 @@
           fancybox: true,
           animate: false,
           isHome: false,
-          isPost: false,
-          isArchive: true,
+          isPost: true,
+          isArchive: false,
           isTag: false,
           isCategory: false,
           open_in_new: false
@@ -267,183 +271,207 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-配置wamp反向代理" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a  href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2017/10/12/配置wamp反向代理/" class="archive-article-date">
-      <time datetime="2017-10-12T01:47:48.000Z" itemprop="datePublished">10-12</time>
+    <div class="article-meta">
+      <a  href="/2017/10/12/配置wamp反向代理/" class="article-date">
+      <time datetime="2017-10-12T01:47:48.000Z" itemprop="datePublished">2017-10-12</time>
 </a>
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2017/10/12/配置wamp反向代理/">配置wamp反向代理</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      配置wamp反向代理
     </h1>
   
 
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-          
-        </div>
+        
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="配置反向代理"><a href="#配置反向代理" class="headerlink" title="配置反向代理"></a>配置反向代理</h1><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>因为博学谷项目的地址为 studyit.com<br>但是接口地址为 api.botue.com</p>
+<p>所以直接请求，就是跨域请求，无法正常获取数据<br>又由于后台接口返回的数据不支持jsonp</p>
+<a id="more"></a>
+<h2 id="配置之后的效果"><a href="#配置之后的效果" class="headerlink" title="配置之后的效果"></a>配置之后的效果</h2><p>我们请求数据可以直接通过 studyit.com 来请求而不是api.botue.com<br>这样就可以避免跨域问题的产生了</p>
+<h2 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a>配置步骤</h2><ol>
+<li>打开httpd.conf</li>
+<li><p>找到如下两行 删掉#</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#LoadModule proxy_module modules/mod_proxy.so</div><div class="line">#LoadModule proxy_http_module modules/mod_proxy.so</div></pre></td></tr></table></figure>
+</li>
+<li><p>打开httpd_vhosts.conf</p>
+</li>
+<li>在studyit.com域名的virtual hosts节点中加入如下两行<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ProxyRequests off</div><div class="line">ProxyPass /api http://api.botue.com/v3</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>ProxyPass /api <a href="http://api.botue.com/v3" target="_blank" rel="external">http://api.botue.com/v3</a></p>
+<p>ProxyPass 要给当前域名添加的一个路径 要将请求转发给那个接口地址</p>
+<p>也就是说给当前域名添加了一个虚拟的路径，用来代理远程的接口服务器！</p>
+<p>登录请求原本的地址： <a href="http://api.botue.com/v3/login" target="_blank" rel="external">http://api.botue.com/v3/login</a><br>设置了如上的反向代理之后，我们可以这样发： <a href="http://studyit.com/api/login" target="_blank" rel="external">http://studyit.com/api/login</a></p>
+
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2017/10/12/配置wamp反向代理/">配置wamp反向代理</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 wds 的个人博客">wds</a></p>
+        <p><span>发布时间:</span>2017年10月12日 - 09时47分</p>
+        <p><span>最后更新:</span>2017年10月12日 - 09时48分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/10/12/配置wamp反向代理/" title="配置wamp反向代理">http://yoursite.com/2017/10/12/配置wamp反向代理/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/10/12/配置wamp反向代理/　　作者: wds" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a  href="/2015/10/10/git相关介绍2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git相关介绍2</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
 </article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a  href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2015/10/10/git相关介绍2/" class="archive-article-date">
-      <time datetime="2015-10-10T09:30:23.000Z" itemprop="datePublished">10-10</time>
-</a>
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2015/10/10/git相关介绍2/">git相关介绍2</a>
-    </h1>
-  
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置反向代理"><span class="toc-number">1.</span> <span class="toc-text">配置反向代理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原因"><span class="toc-number">1.1.</span> <span class="toc-text">原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置之后的效果"><span class="toc-number">1.2.</span> <span class="toc-text">配置之后的效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置步骤"><span class="toc-number">1.3.</span> <span class="toc-text">配置步骤</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
 
 
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a><a class="article-category-link" href="/categories/学习笔记/git/">git</a>
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'xxxx',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2015/10/10/git相关介绍2/" title="下一篇: git相关介绍2">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/10/12/配置wamp反向代理/">配置wamp反向代理</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/10/git相关介绍2/">git相关介绍2</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/10/08/Git基础1/">git相关介绍1</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/06/05/js基础/">js基础</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
 
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端技术/">前端技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2015/10/08/Git基础1/" class="archive-article-date">
-      <time datetime="2015-10-08T07:37:23.000Z" itemprop="datePublished">10-08</time>
-</a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2015/10/08/Git基础1/">git相关介绍1</a>
-    </h1>
-  
 
 
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a><a class="article-category-link" href="/categories/学习笔记/git/">git</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端技术/">前端技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a  href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a  href="/2014/06/05/js基础/" class="archive-article-date">
-      <time datetime="2014-06-05T15:08:29.000Z" itemprop="datePublished">06-05</time>
-</a>
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a  class="archive-article-title" href="/2014/06/05/js基础/">js基础</a>
-    </h1>
-  
-
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/学习/">学习</a><a class="article-category-link" href="/categories/学习/前端技术/">前端技术</a><a class="article-category-link" href="/categories/学习/前端技术/笔记/">笔记</a><a class="article-category-link" href="/categories/学习/前端技术/笔记/js/">js</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端技术/">前端技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-
+    <script>
+        
+    </script>
 
 </div>
       <footer id="footer">
@@ -533,17 +561,6 @@ ga('send', 'pageview');
         };
     })
 </script>
-
-    <button class="hide-labels">TAG 开关</button>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js">
-    </script>
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $(".article-info").toggle(200);
-            });
-        });
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
